@@ -1,0 +1,48 @@
+<div class="form-container">
+    <mat-card>
+      <h2>{{ isEditMode ? 'Edit Task' : 'Create New Task' }}</h2>
+  
+      <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="4"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dueDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority" required>
+            <mat-option value="Low">Low</mat-option>
+            <mat-option value="Medium">Medium</mat-option>
+            <mat-option value="High">High</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option value="Pending">Pending</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" class="full-width">
+          {{ isEditMode ? 'Update Task' : 'Create Task' }}
+        </button>
+  
+      </form>
+    </mat-card>
+  </div>
+  

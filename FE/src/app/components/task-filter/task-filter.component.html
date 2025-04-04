@@ -1,0 +1,39 @@
+<div class="filter-container">
+    <mat-card>
+      <form (ngSubmit)="applyFilter()" [formGroup]="filterForm">
+        
+        <div class="filter-grid">
+  
+          <mat-form-field appearance="fill" class="filter-item">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="">All</mat-option>
+              <mat-option value="Pending">Pending</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="filter-item">
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+              <mat-option value="">All</mat-option>
+              <mat-option value="Low">Low</mat-option>
+              <mat-option value="Medium">Medium</mat-option>
+              <mat-option value="High">High</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary" type="submit" class="filter-button">
+            Apply
+          </button>
+  
+          <button mat-stroked-button color="warn" type="button" (click)="resetFilter()" class="filter-button">
+            Reset
+          </button>
+  
+        </div>
+  
+      </form>
+    </mat-card>
+  </div>
+  

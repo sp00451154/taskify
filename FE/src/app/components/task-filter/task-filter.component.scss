@@ -1,0 +1,26 @@
+.filter-container {
+    margin: 0px;
+  }
+  
+  mat-card {
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: flex-start; /* 👈 Align items from the top */
+  }
+  
+  .filter-item {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-button {
+    height: 56px; // Same height as mat-form-field
+    min-width: 120px;
+  }
+  

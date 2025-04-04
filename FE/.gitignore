@@ -1,0 +1,52 @@
+# --- Angular (Frontend) ---
+/src/environments/environment.prod.ts
+/src/environments/environment.ts
+/.angular/cache/
+node_modules/
+dist/
+out-tsc/
+.angular/
+package-lock.json
+yarn.lock
+
+# --- VS Code ---
+.vscode/
+.history/
+
+# --- OS Generated ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+logs/
+*.tgz
+
+# --- Compiled files ---
+*.tsbuildinfo
+
+# --- Swagger Docs (optional if you generate .json files) ---
+swagger-output.json
+swagger.json
+
+# --- Optional: Socket.IO logs ---
+socket.log
+
+# --- Nginx, Docker, Deploy files (Optional) ---
+docker-compose.yml
+Dockerfile
+*.pem
+
+# --- IDEs ---
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Miscellaneous ---
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
