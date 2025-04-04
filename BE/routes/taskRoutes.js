@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const taskController = require('../controllers/taskController');
-const authController = require('../controllers/authController'); // 👈 import auth controller
+const authController = require('../controllers/authController');
 const { protect } = require('../middleware/authMiddleware');
 
 /**
@@ -12,7 +12,6 @@ const { protect } = require('../middleware/authMiddleware');
  *   - name: Auth
  *     description: User Authentication APIs (Signup and Login)
  */
-
 
 /**
  * @swagger
@@ -113,11 +112,11 @@ router.post('/api/auth/signup', authController.signup);
  */
 router.post('/api/auth/login', authController.login);
 
-// 🛠 EXISTING TASK ROUTES BELOW 🛠
+// 🛠 TASK ROUTES
 
 /**
  * @swagger
- * :
+ * /tasks:
  *   post:
  *     summary: Create a new task
  *     tags: [Tasks]
@@ -137,7 +136,7 @@ router.post('', protect, taskController.createTask);
 
 /**
  * @swagger
- * :
+ * /tasks:
  *   get:
  *     summary: Get all tasks
  *     tags: [Tasks]
@@ -151,7 +150,7 @@ router.get('', protect, taskController.getAllTasks);
 
 /**
  * @swagger
- * /{id}:
+ * /tasks/{id}:
  *   get:
  *     summary: Get a task by ID
  *     tags: [Tasks]
@@ -172,7 +171,7 @@ router.get('/:id', protect, taskController.getTaskById);
 
 /**
  * @swagger
- * /{id}:
+ * /tasks/{id}:
  *   put:
  *     summary: Update a task by ID
  *     tags: [Tasks]
@@ -199,7 +198,7 @@ router.put('/:id', protect, taskController.updateTask);
 
 /**
  * @swagger
- * /{id}:
+ * /tasks/{id}:
  *   delete:
  *     summary: Delete a task by ID
  *     tags: [Tasks]
