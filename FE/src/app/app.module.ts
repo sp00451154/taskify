@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -66,13 +67,15 @@ import { FooterComponent } from './components/footer/footer.component';
     MatBadgeModule,
     MatIconModule,
     MatChipsModule,
+    MatMenuModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -3,8 +3,37 @@
   
     <span class="spacer"></span>
   
-    <button mat-button routerLink="/">Home</button>
-    <button mat-button routerLink="/tasks/new">Add Task</button>
-    <button mat-button routerLink="/login">Login</button>
+    <!-- ✅ If user is logged in, show greeting + avatar -->
+    <ng-container *ngIf="isLoggedIn; else guestLinks">
+  
+      <span>Hello, {{ username }}!</span>
+  
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+  
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item routerLink="/">Home</button>
+        <button mat-menu-item routerLink="/tasks/new">Add Task</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+  
+      <!-- 🌙 Dark mode toggle -->
+      <button mat-icon-button (click)="toggleDarkMode()">
+        <mat-icon>dark_mode</mat-icon>
+      </button>
+  
+    </ng-container>
+  
+    <!-- 🔒 Guest Links if not logged in -->
+    <ng-template #guestLinks>
+      <button mat-button routerLink="/login">Login</button>
+      <button mat-button routerLink="/signup">Signup</button>
+  
+      <!-- 🌙 Dark mode toggle -->
+      <button mat-icon-button (click)="toggleDarkMode()">
+        <mat-icon>dark_mode</mat-icon>
+      </button>
+    </ng-template>
   </mat-toolbar>
   
