@@ -33,6 +33,8 @@ import { TaskFilterComponent } from './components/task-filter/task-filter.compon
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SignupComponent } from './components/signup/signup.component';
     TaskFilterComponent,
     TaskDetailComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
