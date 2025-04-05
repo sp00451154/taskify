@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
@@ -60,6 +61,7 @@ import { SignupComponent } from './components/signup/signup.component';
     MatSnackBarModule,
     MatBadgeModule,
     MatIconModule,
+    MatChipsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule

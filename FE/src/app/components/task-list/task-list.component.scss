@@ -26,5 +26,42 @@
     0% { background-color: #e3f2fd; }
     100% { background-color: transparent; }
   }
+
+  .new-badge {
+  margin-left: 8px;
+  font-size: 10px;
+  height: 20px;
+  animation: pulse 0.6s ease infinite alternate, fadeOutBadge 3s 3s forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Fade out Animation */
+@keyframes fadeOutBadge {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Shake Animation for Bell */
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
   
   

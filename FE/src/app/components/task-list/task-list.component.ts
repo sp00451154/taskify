@@ -25,6 +25,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   socket!: Socket;
   newTaskCount: number = 0;  // 👈 Track new tasks count
   highlightedTaskId: string | null = null; // 👈 Track which task to highlight
+  bellShouldShake: boolean = false;
 
   constructor(private taskService: TaskService, private snackBar: MatSnackBar) { }
 
@@ -40,11 +41,13 @@ export class TaskListComponent implements OnInit, OnDestroy {
       this.tasks = [...this.tasks, newTask];
       this.newTaskCount++; // Increment bell counter
       this.highlightedTaskId = newTask._id; // Highlight the new task
+      this.bellShouldShake = true;
       // 🛎️ Show a toast notification
       this.playBeepSound(); // Play sound
       this.showSnackbar(); // Show toast
       setTimeout(() => {
         this.highlightedTaskId = null;
+        this.bellShouldShake = false;
       }, 3000);
     });
   }
