@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   username: string = '';
+  usernameInitial: string = '';
 
   constructor(private authService: AuthService) {}
 
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
     this.authService.username$.subscribe(name => {
       this.username = name;
+      this.usernameInitial = name ? name.charAt(0).toUpperCase() : 'U';
     });
   }
 

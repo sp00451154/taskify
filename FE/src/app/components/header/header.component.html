@@ -1,27 +1,25 @@
 <mat-toolbar color="primary" class="app-header">
+
     <span class="logo">Taskify 📝</span>
   
     <span class="spacer"></span>
   
-    <!-- ✅ If user is logged in, show greeting + avatar -->
+    <!-- ✅ If user is logged in -->
     <ng-container *ngIf="isLoggedIn; else guestLinks">
   
-      <span>Hello, {{ username }}!</span>
+      <div class="user-info">
+        <div class="avatar">{{ usernameInitial }}</div>
+        <span class="greeting">Hello, {{ username }}!</span>
   
-      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
-        <mat-icon>account_circle</mat-icon>
-      </button>
+        <button mat-button routerLink="/">Home</button>
+        <button mat-button routerLink="/tasks/new">Add Task</button>
+        <button mat-button (click)="logout()">Logout</button>
   
-      <mat-menu #profileMenu="matMenu">
-        <button mat-menu-item routerLink="/">Home</button>
-        <button mat-menu-item routerLink="/tasks/new">Add Task</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
-      </mat-menu>
-  
-      <!-- 🌙 Dark mode toggle -->
-      <button mat-icon-button (click)="toggleDarkMode()">
-        <mat-icon>dark_mode</mat-icon>
-      </button>
+        <!-- 🌙 Dark mode toggle -->
+        <button mat-icon-button (click)="toggleDarkMode()">
+          <mat-icon>dark_mode</mat-icon>
+        </button>
+      </div>
   
     </ng-container>
   
@@ -35,5 +33,6 @@
         <mat-icon>dark_mode</mat-icon>
       </button>
     </ng-template>
+  
   </mat-toolbar>
   
