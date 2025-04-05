@@ -23,6 +23,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['title', 'priority', 'status', 'dueDate', 'actions']; // 👈 columns to display
   loading: boolean = true;
   socket!: Socket;
+  newTaskCount: number = 0;  // 👈 Track new tasks count
+  highlightedTaskId: string | null = null; // 👈 Track which task to highlight
 
   constructor(private taskService: TaskService, private snackBar: MatSnackBar) { }
 
@@ -36,18 +38,39 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.socket.on('taskCreated', (newTask) => {
       console.log('🆕 Real-time task received:', newTask);
       this.tasks = [...this.tasks, newTask];
+      this.newTaskCount++; // Increment bell counter
+      this.highlightedTaskId = newTask._id; // Highlight the new task
       // 🛎️ Show a toast notification
-      this.snackBar.open('🆕 New task added!', 'Close', {
-        duration: 3000, // 3 seconds
-        verticalPosition: 'top',
-        horizontalPosition: 'right',
-        panelClass: ['custom-snackbar'] // Optional for styling
-      });
+      this.playBeepSound(); // Play sound
+      this.showSnackbar(); // Show toast
+      setTimeout(() => {
+        this.highlightedTaskId = null;
+      }, 3000);
     });
-
-    
-
   }
+
+  playBeepSound() {
+    const audio = new Audio('assets/beep.mp3');
+    audio.load();  // preload
+    audio.play().catch(error => {
+      console.warn('Audio playback failed:', error);
+    });
+    
+  }
+
+  clearNotifications() {
+    this.newTaskCount = 0;
+  }
+
+  showSnackbar() {
+    this.snackBar.open('🆕 New task added!', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      panelClass: ['custom-snackbar']
+    });
+  }
+
 
   fetchTasks() {
     this.taskService.getTasks().subscribe({

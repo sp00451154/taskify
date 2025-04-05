@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -56,6 +58,8 @@ import { SignupComponent } from './components/signup/signup.component';
     MatToolbarModule,
     MatToolbarModule,
     MatSnackBarModule,
+    MatBadgeModule,
+    MatIconModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule

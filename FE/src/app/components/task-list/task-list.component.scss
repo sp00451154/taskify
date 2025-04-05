@@ -10,10 +10,21 @@
     width: 100%;
     margin-top: 20px;
   }
-  
+
   .custom-snackbar {
     background-color: #4caf50; /* Green background */
     color: #fff; /* White text */
     font-weight: bold;
   }
+
+  .highlight-new {
+    background-color: #e3f2fd; /* Light blue */
+    animation: fadeOutBackground 3s forwards;
+  }
+  
+  @keyframes fadeOutBackground {
+    0% { background-color: #e3f2fd; }
+    100% { background-color: transparent; }
+  }
+  
   
